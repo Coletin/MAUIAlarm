@@ -8,7 +8,16 @@
                 Placeholder="Alarm name"
                 Text="{Binding Name}"
                 HeightRequest="100" />
-        
+
+        <Editor x:Name="Descripcion"
+                Placeholder="Alarm name"
+                Text="{Binding Description}"
+                HeightRequest="100" />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button x:Name="btnSave" Text="Save" Clicked="Save_Clicked" />
+            <Button x:Name="btnDelete" Grid.Column="1" Text="Delete" Clicked="Delete_Clicked" />
+        </Grid>
         
     </VerticalStackLayout>
 </ContentPage>

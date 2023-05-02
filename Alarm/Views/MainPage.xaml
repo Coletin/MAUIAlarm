@@ -11,7 +11,8 @@
     <CollectionView x:Name="listaElementos"
                     Margin="20"
                     SelectionMode="Single"
-                    ItemsSource="{Binding Alarms}">
+                    ItemsSource="{Binding Alarms}"
+                    SelectionChanged="listaElementos_SelectionChanged">
 
         <CollectionView.Header >
             <Grid>
