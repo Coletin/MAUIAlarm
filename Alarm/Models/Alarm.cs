@@ -11,13 +11,27 @@ namespace Alarm.Models {
         public string Name { get; set; }
         public string Description { get; set; }
         public string FileName { get; set; }
+        public int AlarmHour { get; set; }
+        public int AlarmMinutes { get; set; }
+        public TimeSpan AlarmTime {
+            get { return new TimeSpan(this.AlarmHour, this.AlarmMinutes, 0); }
+            set { this.AlarmHour = value.Hours;this.AlarmMinutes = value.Minutes; }
+        }
+        public string SonaraEn {
+            get { return "10 minutos"; }
+        }
+
 
         public string ToJSON() {
             JObject mainObject = new JObject();
             JProperty pName = new JProperty("Name",this.Name);
             JProperty pDesc = new JProperty("Description", this.Description);
+            JProperty pHour = new JProperty("Hour", this.AlarmHour);
+            JProperty pMinute = new JProperty("Minute", this.AlarmMinutes);
             mainObject.Add(pName);
             mainObject.Add(pDesc);
+            mainObject.Add(pHour);
+            mainObject.Add(pMinute);
             return mainObject.ToString(); 
         }
 
@@ -26,6 +40,8 @@ namespace Alarm.Models {
                 JObject mainObject = JObject.Parse(json);
                 this.Name = mainObject.Property("Name").Value.ToString();
                 this.Description = mainObject.Property("Description").Value.ToString();
+                this.AlarmHour = int.Parse(mainObject.Property("Hour").Value.ToString());
+                this.AlarmMinutes = int.Parse(mainObject.Property("Minute").Value.ToString());
             } catch(Exception e) { }
         }
 
