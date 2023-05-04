@@ -6,13 +6,17 @@
     <VerticalStackLayout>
         <Editor x:Name="Nombre"
                 Placeholder="Alarm name"
-                Text="{Binding Name}"
-                HeightRequest="100" />
+                Text="{Binding Name}"/>
 
         <Editor x:Name="Descripcion"
                 Placeholder="Alarm name"
-                Text="{Binding Description}"
-                HeightRequest="100" />
+                Text="{Binding Description}"/>
+
+        <Grid ColumnDefinitions="Auto,Auto,Auto,*">
+            <Label Text="Hora: " VerticalOptions="Center" />
+            <TimePicker x:Name="timePicker" Time="{Binding AlarmTime}" Grid.Column="1" Format="HH:mm" HorizontalOptions="CenterAndExpand" />
+            <Label Grid.Column="2" Text="{Binding SonaraEn}"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+        </Grid>
 
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
             <Button x:Name="btnSave" Text="Save" Clicked="Save_Clicked" />
