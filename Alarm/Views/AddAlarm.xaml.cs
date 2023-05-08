@@ -39,4 +39,10 @@ public partial class AddAlarm : ContentPage
 
         this.BindingContext= alarma;
     }
+
+    private void btnTest_Clicked(object sender, EventArgs e) {
+        if (this.BindingContext is Models.Alarm alarm) {
+            alarm.test();
+        }
+    }
 }
