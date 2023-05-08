@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+//[assembly: Xamarin.Forms.]
 namespace Alarm.Models {
     internal class Alarm {
         public string Name { get; set; }
@@ -43,6 +44,13 @@ namespace Alarm.Models {
                 this.AlarmHour = int.Parse(mainObject.Property("Hour").Value.ToString());
                 this.AlarmMinutes = int.Parse(mainObject.Property("Minute").Value.ToString());
             } catch(Exception e) { }
+        }
+
+        public void test() {
+            Services.ConditionalCompilation.ClockAlarm clockAlarm = new Services.ConditionalCompilation.ClockAlarm();
+            clockAlarm.test();
+            //if (PhoneDialer.IsSupported)
+            //    PhoneDialer.Default.Open("123-123-1234");
         }
 
     }
