@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Android.App;
+using Javax.Security.Auth;
+using Microsoft.Extensions.Logging;
 
 namespace Alarm;
 
@@ -21,4 +23,12 @@ public static class MauiProgram
 
 		return builder.Build();
 	}
+
+#if ANDROID
+
+    private static void MyOnResume(Activity activity) {
+		//activity.RegisterReceiver()
+	}
+
+#endif
 }

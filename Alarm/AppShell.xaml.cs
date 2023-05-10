@@ -7,5 +7,6 @@ public partial class AppShell : Shell
 		InitializeComponent();
 
 		Routing.RegisterRoute(nameof(Views.AddAlarm), typeof(Views.AddAlarm));
+		Routing.RegisterRoute(nameof(Views.VentanaAlarma),typeof(Views.VentanaAlarma));
 	}
 }
