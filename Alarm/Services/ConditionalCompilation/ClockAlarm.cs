@@ -18,7 +18,7 @@ namespace Alarm.Services.ConditionalCompilation {
             alarmIntent.PutExtra("pendingIntent", pendingIntent);
             AlarmManager alarmManager = (AlarmManager)Android.App.Application.Context.GetSystemService(Context.AlarmService);
             DateTime startTime = DateTime.Today.AddMinutes(1);
-            long interval = 60 * 1000;
+            long interval = 10 * 1000;
             //alarmManager.SetRepeating(AlarmType.RtcWakeup, startTime.Ticks, interval, pendingIntent);
             alarmManager.Set(AlarmType.ElapsedRealtimeWakeup, Android.OS.SystemClock.ElapsedRealtime() + interval, pendingIntent);
 #endif
